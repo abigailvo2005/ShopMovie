@@ -58,7 +58,7 @@ public class MainActivity extends AppCompatActivity {
                 System.out.println("worked");
 //                Intent i = new Intent(getApplicationContext(), ProfileActivity.class);
 //                startActivity(i);
-                //signIn();
+                signIn();
             }
         });
 
