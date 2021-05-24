@@ -15,7 +15,7 @@
         android:fontFamily="sans-serif-black"
         android:text="MOVIES SHOP"
         android:textColor="#edd6ff"
-        android:textSize="40dp" />
+        android:textSize="40sp" />
 
     <TextView
         android:layout_width="wrap_content"
@@ -23,7 +23,7 @@
         android:fontFamily="sans-serif-condensed-medium"
         android:text="LOG-IN"
         android:textColor="#ffd6d6"
-        android:textSize="30dp"
+        android:textSize="30sp"
         android:layout_marginTop="5dp"/>
 
     <com.google.android.gms.common.SignInButton
@@ -31,6 +31,8 @@
         android:layout_width="280dp"
         android:layout_height="wrap_content"
         android:layout_marginTop="15dp"/>
+
+
 
 
 
