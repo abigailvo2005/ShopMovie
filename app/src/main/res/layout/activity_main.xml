@@ -6,34 +6,46 @@
     android:gravity="center"
     android:background="@drawable/wallpaper"
     android:orientation="vertical"
-
     tools:context=".MainActivity">
 
-    <TextView
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:fontFamily="sans-serif-black"
-        android:text="MOVIES SHOP"
-        android:textColor="#edd6ff"
-        android:textSize="40sp" />
-
-    <TextView
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:fontFamily="sans-serif-condensed-medium"
-        android:text="LOG-IN"
-        android:textColor="#ffd6d6"
-        android:textSize="30sp"
-        android:layout_marginTop="5dp"/>
-
-    <com.google.android.gms.common.SignInButton
-        android:id="@+id/gg_sign_in_btn"
-        android:layout_width="280dp"
-        android:layout_height="wrap_content"
-        android:layout_marginTop="15dp"/>
 
 
 
+        <TextView
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:fontFamily="sans-serif-black"
+            android:text="MOVIES SHOP"
+            android:textColor="#edd6ff"
+            android:textSize="40sp" />
+
+        <TextView
+            android:id="@+id/logIn"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:fontFamily="sans-serif-condensed-medium"
+            android:text="LOG-IN"
+            android:textColor="#ffd6d6"
+            android:textSize="30sp"
+            android:layout_marginTop="5dp"/>
+
+        <com.google.android.gms.common.SignInButton
+            android:id="@+id/gg_sign_in_btn"
+            android:layout_width="280dp"
+            android:layout_height="wrap_content"
+            android:layout_marginTop="15dp"/>
+
+
+        <com.facebook.login.widget.LoginButton
+            android:id="@+id/fb_sign_in_button"
+            android:layout_width="276dp"
+            android:layout_height="wrap_content"
+            android:layout_gravity="center_horizontal"
+            android:paddingTop="12dp"
+            android:paddingBottom="12dp"
+            android:paddingLeft="15dp"
+            android:layout_marginTop="10dp"
+            android:layout_marginBottom="30dp" />
 
 
 </LinearLayout>

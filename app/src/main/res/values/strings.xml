@@ -1,3 +1,7 @@
 <resources>
     <string name="app_name">ShopMovies</string>
+
+    <string name="facebook_app_id">1428901204169062</string>
+    <string name="fb_login_protocol_scheme">fb1428901204169062</string>
+
 </resources>

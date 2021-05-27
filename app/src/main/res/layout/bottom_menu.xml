@@ -1,0 +1,60 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    android:layout_width="match_parent"
+    android:layout_height="50dp"
+    android:background="#ecebff"
+    android:gravity="center_horizontal"
+    android:id="@+id/bottomMenu">
+
+    <!--    MOVIE SECTON BUTTON     -->
+    <LinearLayout
+        android:id="@+id/movieSection"
+        android:layout_width="150dp"
+        android:layout_height="wrap_content"
+        android:layout_marginTop="2dp"
+        android:gravity="center_horizontal"
+        android:orientation="vertical">
+
+        <ImageView
+            android:layout_width="35dp"
+            android:layout_height="30dp"
+            android:background="@drawable/movies_icon"
+            android:backgroundTint="#40143c" />
+
+        <TextView
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:fontFamily="sans-serif-condensed-medium"
+            android:text="MOVIES"
+            android:textColor="#40143c"
+            android:textSize="10dp" />
+
+    </LinearLayout>
+
+
+    <!--    PROFILE SECTION BUTTON  -->
+    <LinearLayout
+        android:id="@+id/profileSection"
+        android:layout_width="150dp"
+        android:layout_height="wrap_content"
+        android:layout_marginTop="2dp"
+        android:gravity="center_horizontal"
+        android:orientation="vertical">
+
+        <ImageView
+            android:layout_width="35dp"
+            android:layout_height="30dp"
+            android:background="@drawable/profile_icon"
+            android:backgroundTint="#40143c" />
+
+        <TextView
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:fontFamily="sans-serif-condensed-medium"
+            android:text="PROFILE"
+            android:textColor="#40143c"
+            android:textSize="10dp" />
+
+    </LinearLayout>
+
+</LinearLayout>

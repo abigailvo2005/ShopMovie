@@ -1,34 +1,79 @@
 <?xml version="1.0" encoding="utf-8"?>
-<LinearLayout
-    xmlns:android="http://schemas.android.com/apk/res/android" android:layout_width="match_parent"
+<RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    android:layout_width="match_parent"
     android:layout_height="match_parent"
-    android:gravity="center"
-    android:orientation="vertical">
+    android:background="@drawable/wallpaper">
 
-    <ImageView
-        android:id="@+id/profile_pic"
-        android:layout_width="100dp"
-        android:layout_height="100dp"
-        android:src="@drawable/movies_icon"
-        />
+    <!--    CUSTOMIZED TOOLBAR     -->
+    <include
+        android:id="@+id/toolbar"
+        layout="@layout/customize_toolbar" />
 
-    <TextView
-        android:id="@+id/username"
+
+    <LinearLayout
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:text="USERNAME"
-        android:textSize="40sp"
-        android:fontFamily="sans-serif-condensed-medium"
-        android:textColor="@color/black"/>
+        android:layout_centerHorizontal="true"
+        android:layout_centerVertical="true"
+        android:gravity="center"
+        android:orientation="vertical">
 
-    <TextView
-        android:id="@+id/gmail_address"
-        android:layout_width="wrap_content"
+        <RelativeLayout
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content">
+
+            <ImageView
+                android:id="@+id/profile_pic"
+                android:layout_width="200dp"
+                android:layout_height="200dp"
+                android:padding="3dp"
+                android:background="@drawable/profile_boxes"
+                android:elevation="10dp"
+                android:src="@drawable/ic_launcher_background" />
+
+            <com.facebook.login.widget.ProfilePictureView
+                android:id="@+id/facebook_profile_pic"
+                android:layout_width="200dp"
+                android:layout_height="200dp"
+                android:background="@drawable/profile_boxes"
+                android:padding="3dp" />
+
+        </RelativeLayout>
+
+
+        <TextView
+            android:id="@+id/username"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginTop="10dp"
+            android:fontFamily="serif-monospace"
+            android:text="username"
+            android:textColor="#f4e8ff"
+            android:textSize="30sp"
+            android:textStyle="bold|italic" />
+
+        <TextView
+            android:id="@+id/gmail_address"
+            android:layout_width="450dp"
+            android:layout_height="40dp"
+            android:layout_marginTop="20dp"
+            android:background="@drawable/profile_boxes"
+            android:fontFamily="casual"
+            android:gravity="center"
+            android:text="GMAIL"
+            android:textColor="#595159"
+            android:textSize="15sp" />
+
+    </LinearLayout>
+
+
+    <!--    BOTTOM MENU SECTION     -->
+    <include
+        android:id="@+id/toolbar"
+        layout="@layout/bottom_menu"
+        android:layout_width="match_parent"
         android:layout_height="wrap_content"
-        android:text="GMAIL"
-        android:textSize="30sp"
-        android:fontFamily="sans-serif-condensed-medium"
-        android:textColor="@color/black"/>
+        android:layout_alignParentBottom="true" />
 
 
-</LinearLayout>
+</RelativeLayout>

@@ -1,0 +1,30 @@
+<?xml version="1.0" encoding="utf-8"?>
+<RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:background="@drawable/wallpaper">
+
+    <include
+        android:id="@+id/toolbar"
+        layout="@layout/customize_toolbar" />
+
+
+    <GridView
+        android:id="@+id/theGrid"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:numColumns="3"
+        android:layout_marginTop="60dp"
+        android:horizontalSpacing="10dp"
+        android:verticalSpacing="10dp"
+        android:layout_marginLeft="10dp"
+        android:layout_marginRight="5dp"/>
+
+    <include
+        android:id="@+id/toolbar"
+        layout="@layout/bottom_menu"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_alignParentBottom="true"/>
+
+</RelativeLayout>

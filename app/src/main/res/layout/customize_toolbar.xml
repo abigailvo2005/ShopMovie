@@ -1,29 +1,46 @@
 <?xml version="1.0" encoding="utf-8"?>
-<RelativeLayout
-    xmlns:android="http://schemas.android.com/apk/res/android"
+<RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
     android:layout_width="match_parent"
-    android:layout_height="70dp"
+    android:layout_height="50dp"
     android:background="#ecebff">
 
+<!--    TITLE-->
     <TextView
+        android:id="@+id/toolbar_title"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:layout_marginLeft="15dp"
-        android:layout_marginTop="15dp"
-        android:fontFamily="serif"
         android:layout_alignParentLeft="true"
+        android:layout_marginLeft="15dp"
+        android:layout_marginTop="8dp"
+        android:fontFamily="serif"
         android:text="TITLE"
         android:textColor="@color/black"
-        android:textSize="30sp" />
+        android:textSize="25sp" />
 
+<!--    THE SIGN OUT OPTION BUTTON-->
     <ImageView
         android:id="@+id/signOutdots"
-        android:layout_width="130dp"
-        android:layout_height="150dp"
-        android:src="@drawable/dots_icon"
+        android:layout_width="80dp"
+        android:layout_height="match_parent"
         android:layout_alignParentRight="true"
-        android:contentDescription="signing out dots"/>
+        android:contentDescription="signing out dots"
+        android:src="@drawable/dots_icon" />
 
+<!--    SIGN OUT BUTTON-->
+    <TextView
+        android:id="@+id/signOutBtn"
+        android:layout_width="150dp"
+        android:layout_height="40dp"
+        android:layout_alignParentRight="true"
+        android:layout_marginTop="5dp"
+        android:layout_marginRight="5dp"
+        android:background="@drawable/sign_out_border"
+        android:fontFamily="serif"
+        android:gravity="center_vertical"
+        android:paddingLeft="15dp"
+        android:text="SIGN OUT"
+        android:textColor="@color/black"
+        android:textSize="15sp" />
 
 
 </RelativeLayout>
