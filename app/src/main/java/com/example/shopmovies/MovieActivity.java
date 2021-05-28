@@ -3,18 +3,39 @@ package com.example.shopmovies;
 import android.app.Activity;
 import android.content.Intent;
 import android.content.SharedPreferences;
+import android.os.AsyncTask;
 import android.os.Bundle;
 import android.view.View;
 import android.view.Window;
+import android.widget.GridLayout;
 import android.widget.GridView;
 import android.widget.TextView;
 import android.widget.Toast;
 
+import org.json.JSONArray;
+import org.json.JSONException;
+import org.json.JSONObject;
+
+import java.io.IOException;
+import java.io.InputStream;
+import java.io.InputStreamReader;
+import java.net.HttpURLConnection;
+import java.net.MalformedURLException;
+import java.net.URL;
+import java.util.ArrayList;
+import java.util.HashMap;
+
 public class MovieActivity extends Activity implements View.OnClickListener {
     GridView gridView;
-    String[] names = {"movie", "movies", "mov", "hello", "movie", "movies", "mov", "hello"};
-    String[] prices = {"$999", "$320", "$330", "$440", "$999", "$320", "$330", "$440"};
-    int[] images = {R.drawable.wallpaper, R.drawable.wallpaper, R.drawable.wallpaper, R.drawable.wallpaper, R.drawable.wallpaper, R.drawable.wallpaper, R.drawable.wallpaper, R.drawable.wallpaper};
+    ArrayList<String> names = new ArrayList<>();
+    ArrayList<String> prices = new ArrayList<>();
+    ArrayList<String> imageURLs = new ArrayList<>();
+
+
+    String movieName, moviePrice, movieImageURL;
+    private static String JSON_URL = "https://api.androidhive.info/json/movies_2017.json";
+    ArrayList<HashMap<String, String>> movieList;
+
 
     @Override
     protected void onPause() {
@@ -66,23 +87,21 @@ public class MovieActivity extends Activity implements View.OnClickListener {
             }
         });
 
-        //set adapter and display movies on screen
-        gridView = findViewById(R.id.theGrid);
-        MovieAdapter adapter = new MovieAdapter(names, prices, images, getApplicationContext());
-        gridView.setAdapter(adapter);
-
 
         //*********** BOTTOM MENU SECTION ************** s
         //set onClick events for 2 bottom buttons
-        findViewById(R.id.movieSection).setOnClickListener((View.OnClickListener)this);
-        findViewById(R.id.profileSection).setOnClickListener((View.OnClickListener)this);
+        findViewById(R.id.movieSection).setOnClickListener((View.OnClickListener) this);
+        findViewById(R.id.profileSection).setOnClickListener((View.OnClickListener) this);
 
+
+        RetrieveData getData = new RetrieveData();
+        getData.execute();
 
     }
 
     @Override
     public void onClick(View v) {
-        switch(v.getId()) {
+        switch (v.getId()) {
             case R.id.movieSection:
                 //Redirect to Movie Activity
                 Intent mov = new Intent(getApplicationContext(), MovieActivity.class);
@@ -100,5 +119,83 @@ public class MovieActivity extends Activity implements View.OnClickListener {
                 break;
         }
     }
+
+    public class RetrieveData extends AsyncTask<String, String, String> {
+
+        @Override
+        protected String doInBackground(String... strings) {
+            String cur = "";
+
+            try {
+                URL url;
+                HttpURLConnection urlConnection = null;
+
+                try {
+                    url = new URL(JSON_URL);
+                    urlConnection = (HttpURLConnection) url.openConnection();
+
+                    InputStream in = urlConnection.getInputStream();
+                    InputStreamReader inReader = new InputStreamReader(in);
+
+                    int data = inReader.read();
+                    while (data != -1) {
+
+                        cur += (char) data;
+                        data = inReader.read();
+
+                    }
+
+
+                } catch (MalformedURLException e) {
+                    e.printStackTrace();
+                } catch (IOException e) {
+                    e.printStackTrace();
+                } finally {
+                    if (urlConnection != null) {
+                        urlConnection.disconnect();
+                    }
+                }
+
+            } catch (Exception e) {
+            }
+
+            return cur;
+        }
+
+        @Override
+        protected void onPostExecute(String s) {
+            try {
+
+                JSONArray jsonArray = new JSONArray(s);
+
+                for (int i = 0; i < jsonArray.length(); i++) {
+
+                    JSONObject jsonObject = jsonArray.getJSONObject(i);
+
+                    movieName = jsonObject.getString("title");
+                    moviePrice = (String) jsonObject.get("price");
+                    movieImageURL = jsonObject.getString("image");
+
+
+                    names.add(movieName);
+                    prices.add(moviePrice);
+                    imageURLs.add(movieImageURL);
+
+
+                }
+
+            } catch (JSONException e) {
+                e.printStackTrace();
+            }
+
+
+            //set adapter and display movies on screen
+            gridView = findViewById(R.id.theGrid);
+            MovieAdapter adapter = new MovieAdapter(names, prices, imageURLs, MovieActivity.this);
+            gridView.setAdapter(adapter);
+        }
+    }
+
+
 }
 

@@ -13,12 +13,13 @@
         android:id="@+id/theGrid"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:numColumns="3"
+        android:numColumns="2"
         android:layout_marginTop="60dp"
         android:horizontalSpacing="10dp"
         android:verticalSpacing="10dp"
         android:layout_marginLeft="10dp"
-        android:layout_marginRight="5dp"/>
+        android:layout_marginRight="5dp"
+        android:layout_marginBottom="53dp" />
 
     <include
         android:id="@+id/toolbar"

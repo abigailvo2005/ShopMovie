@@ -102,8 +102,6 @@ public class ProfileActivity extends Activity implements View.OnClickListener {
             //hide the Google's Profile Picture View
             avatar.setVisibility(View.INVISIBLE);
 
-            Toast.makeText(this, userID, Toast.LENGTH_SHORT).show();
-
             facebookView.setProfileId(userID);
 
             facebookView.setVisibility(View.VISIBLE);
